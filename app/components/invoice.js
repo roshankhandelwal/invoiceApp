@@ -43,6 +43,7 @@ export default Component.extend({
             let invoicesFiltered = this.items.filter(item => item.id !== invoiceToDelete.id);
             // console.log(itemsFiltered);
             this.set('items', invoicesFiltered);
+            this.recalculateTotal();
         },
 
         showInvoiceModal() {
