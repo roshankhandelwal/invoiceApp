@@ -1,7 +1,8 @@
 import Component from '@ember/component';
 import Object from '@ember/object';
 import { v4 } from "ember-uuid";
-import { set } from '@ember/object'
+// import Ember from "ember";
+import { set } from '@ember/object';
 
 const Invoice = Object.extend({
     id: null,
@@ -92,11 +93,11 @@ export default Component.extend({
 
             // console.log(invoiceToEdit);
 
-            this.newInvoice = Invoice.create({
+            this.set('newInvoice', Invoice.create({
                 id: invoiceToEdit.item.id,
                 description: invoiceToEdit.item.description,
                 amount: invoiceToEdit.item.amount
-            }),
+            }));
 
             // console.log(this.newInvoice);
 
