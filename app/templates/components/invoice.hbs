@@ -1,0 +1,88 @@
+<main class="invoice container">
+    <h1>Invoice</h1>
+    {{!-- <div class="addressArea mt-5">
+        <div class="row">
+            <div class="col-sm">
+                <h2>Bill To</h2>
+                <div class="billingAddress">
+                    {{#each this.model.billTo}}
+                        <span>{{this}}</span>
+                    {{/each}}
+                </div>
+            </div>
+            <div class="col-sm">
+                <h2>Ship To</h2>
+                <div class="shippingAddress">
+
+                </div>
+            </div>
+        </div>
+    </div> --}}
+    <div class="invoiceArea">
+        <button type="button" class="btn btn-primary addItem" onclick={{action "showInvoiceModal"}}>Add Item</button>
+        <div class="headers row">
+            <div class="col-md-3">#</div>
+            <div class="col-md-6">Description</div>
+            <div class="col-md-2">Amount</div>
+            <div class="col-md-1">Actions</div>
+        </div>
+        {{#each this.items as | item |}}
+            <InvoiceListing @item={{item}} @onDelete={{action 'deleteInvoice'}} @onEdit={{action 'editInvoice'}}/>
+        {{else}}
+            <h3 class="alert alert-warning">No invoices have been added</h3>
+        {{/each}}
+    </div>
+    <div class="billingArea">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="label text-right">Subtotal</div>
+                <div class="label text-right">Tax Rate</div>
+                <div class="label text-right">Sales Tax</div>
+                <div class="label text-right">Other</div>
+                <div class="label text-right">Total</div>
+            </div>
+            <div class="col-md-3 prices">
+                <div class="label">$ {{subtotal}}</div>
+                <div class="label">5%</div>
+                <div class="label">12%</div>
+                <div class="label">None</div>
+                <div class="label">$ {{finalTotal}}</div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+{{#if isShowingAddModal}}
+    {{#modal-dialog 
+            targetAttachment="center" 
+            translucentOverlay=true
+        }}
+            <form class="addInvoiceForm">
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    {{input type="text" class="form-control" value= (get this.newInvoice 'description') placeholder="Invoice Description"}}
+                </div>
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>
+                        {{!-- <input type="text" class="form-control" aria-label="Amount"> --}}
+                        {{input type="text" class="form-control" value= (get this.newInvoice 'amount') }}
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button type="button" class="btn btn-link float-left" onclick={{action "closeModal" }}>Cancel</button>
+                    <button type="button" class="btn btn-primary float-right" onclick={{action "addInvoice" this.newInvoice}}>
+                        {{#if isEditMode}}
+                            EDIT
+                        {{else}}
+                            ADD
+                        {{/if}}
+                    </button>
+                </div>
+            </form>
+    {{/modal-dialog}}
+{{/if}}

@@ -1,0 +1,140 @@
+.invoice {
+
+    padding: 0px;
+
+    h1 {
+        margin: 1rem -1rem;
+        font-size: 3rem;
+        text-transform: uppercase;
+        text-align: right;
+    }
+
+    .addressArea {
+
+        .row div {
+            padding: 0rem;
+        }
+
+        h2 {
+            border-bottom: .05rem solid;
+        }
+        
+    }
+
+    .invoiceArea {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+
+        margin-top: 5rem;
+
+        .addItem {
+            width: 300px;
+
+            margin-bottom: 1rem;
+
+            position: absolute;
+            right: -1rem;
+            top: -3rem;
+        }
+
+        .headers {
+            // margin: 1rem;
+            // margin-bottom: 0rem;
+            // padding: 0rem;     
+            
+            div {
+                border: 0.05rem solid #999;
+                padding: .5rem;
+                background-color: #ddd;
+
+                &:not(:first-child) {
+                    border-left: none;
+                }
+            }
+        }
+
+        .ember-view {
+
+            .invoice-listing {
+                // margin: 0rem 1rem;
+                display: flex;
+    
+                div {
+                    padding: .5rem;  
+                    color: #777;
+                    font-size: .9rem;
+                    border: .01rem solid #dedede;
+                    border-top: none;
+    
+                    display: flex;
+                    align-items: center;
+    
+                    text-transform: uppercase;
+    
+                    &.price {
+                        font-size: 1rem;
+                        font-weight: 500;
+                    }
+    
+                    &.desc {
+                        color: #444;
+                    }
+
+                    &:not(:first-child) {
+                        border-left: none;
+                    }
+                }
+
+                .icon {
+                    font-size: 1.2rem;
+                    margin: 0rem .5rem;
+                    cursor: pointer;
+                }
+            }
+
+            // &:not(:last-child) .invoice div {
+            //     border-bottom: none;
+            // }
+        }        
+    }
+
+    .billingArea {
+
+        flex-wrap: unset;
+
+        .row > div {
+            padding: 0rem;
+        }
+
+        .prices {
+            .label {
+                padding: 0.4rem .5rem;
+                text-transform: uppercase;
+    
+                border-right: 0.01rem solid #dedede;
+                color: #444;
+    
+                letter-spacing: 2px;
+                font-size: .9rem;
+            }
+        }
+
+        .label {
+            padding: 0.4rem .5rem;
+            text-transform: uppercase;
+
+            border-right: 0.01rem solid #dedede;
+            color: #acacac;
+
+            letter-spacing: 2px;
+            font-size: .9rem;
+        }
+    }
+}
+
+.addInvoiceForm {
+    width: 400px;
+    padding: 1rem;
+    
+}

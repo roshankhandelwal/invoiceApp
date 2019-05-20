@@ -20,6 +20,16 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+
+    fontawesome: {
+      defaultPrefix: 'fas', // light icons
+      icons: {
+        'free-solid-svg-icons': [
+          'edit',
+          'trash-alt'
+        ]
+      }
     }
   };
 
