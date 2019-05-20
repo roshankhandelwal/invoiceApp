@@ -3,7 +3,7 @@
   <div class="col-md-6 desc">{{this.item.description}}</div>
   <div class="col-md-2 price">${{this.item.amount}}</div>
   <div class="col-md-1 actions">
-    <span class="icon" onclick={{action "editInvoice"}}>{{fa-icon 'edit'}} </span>
-    <span class="icon" onclick={{action "deleteInvoice"}}>{{fa-icon 'trash-alt'}}</span>
+    <button class="icon" onclick={{action "editInvoice"}}>{{fa-icon "edit"}} </button>
+    <button class="icon" onclick={{action "deleteInvoice"}}>{{fa-icon "trash-alt"}}</button>
   </div>
 </div>
